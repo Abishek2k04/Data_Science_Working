@@ -36,4 +36,5 @@ table(predTrain, training_set$Diabetes.status)
 predTrain <- predict(model,testing_set, type ="class")
 
 table(predTrain, testing_set$Diabetes.status)
+importance(model)
 
