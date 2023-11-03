@@ -24,3 +24,13 @@ test_set[-3]=scale(test_set[-3])
 View(training_set[-3])
 View(test_set[-3])
 
+library(e1071)
+classifier = naiveBayes(x = training_set[-3],
+                      y = training_set$Purchased)
+###########Predict###########
+y_pred = predict(classifier,newdata = test_set[-3])
+
+###########Making the confusion matrix###########
+cm = table(test_set[,3],y_pred)
+View(cm)
+cm
