@@ -1,6 +1,7 @@
 choropleth map
 => put color seperate,filled map,shadde areas magnitude of an attributes
-
+{}----------------------------------------->KETUFYING IN 8 MARKS<---------------------------------------------------------{}
+{"
 dashboard collection of several vies,letting you compare various dat simuntanuously
 dashboard play major role
 app of dashborad 
@@ -9,7 +10,14 @@ revies process(gant chart)
 performance measures-
 data visualization};
 
-Types of dashboars							lvl of seniorty			time app			lvl of complex
---->Operational dashboard 				junior management			routine				simple
---->analytical dashboard 				middle managemwnt			medium-term		    less complex
---->strategic dashboard                  senior management 			long term			simple
+Types of dashboars						  	->lvl of seniorty<-			  ->time app<-		      ->lvl of complex<-
+--->Operational dashboard 				junior management		    	routine				        simple
+--->analytical dashboard 				  middle managemwnt	    		medium-term		        less complex
+--->strategic dashboard           senior management 	    	long term			        simple
+"};
+{}----------------------------------------->KETUFYING IN 8 MARKS<-----------------------------------------------------{}
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|                                                                                                                                                                                                                                                                                                       |
+|                              [consider you audience,determine your goals,choose relavant kpis,tell a story,tell story with your data,provide context,dont try to place all the information on the same page,select the right types of dashboard,use the right chart type]                             |                                                                                                                                                                                                                                              |
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
