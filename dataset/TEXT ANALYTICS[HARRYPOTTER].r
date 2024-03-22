@@ -70,7 +70,7 @@ ggplot(frequency, aes(x = book_words, y = all_words, color = abs(all_words - boo
   geom_text(aes(label = word), check_overlap = TRUE , vjust = 1.5) +
   scale_x_log10(labels = scales::percent_format()) +
   scale_y_log10(labels = scales::percent_format()) +
-  scale_color_gradient(limits = c(0, 0.001), low  = "darkslategray4" , high = "gray75")
+  scale_color_gradient(limits = c(0, 0.001), low  = "darkslategray4" , high = "gray75") +
   facet_wrap(~ book, ncol = 2) +
   theme(legend.position = "none") +
   labs(y = "Harry Potter Series", x= NULL)  
