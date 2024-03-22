@@ -74,5 +74,7 @@ ggplot(frequency, aes(x = book_words, y = all_words, color = abs(all_words - boo
   facet_wrap(~ book, ncol = 2) +
   theme(legend.position = "none") +
   labs(y = "Harry Potter Series", x= NULL)  
-  
+  frequency %>% 
+  group_by(book) %>%summarise(correlation = cor(book_words, all_words), p_value = cor.test(book_words, all_words)$p.value)
+
   
