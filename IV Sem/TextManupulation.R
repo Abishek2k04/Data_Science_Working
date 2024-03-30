@@ -45,5 +45,17 @@ str_detect(spl2, "TO")
 spl2[791]
 
 #detecting string index
-str_which(spl2, "AT")
-spl2[1874]
+str_which(spl2, "Z")
+spl2[16]
+#count matrix in string
+str_count(spl2, "E")
+spl2[964]
+#flattening string
+a=str_flatten(spl2, " ")
+View(a)
+a
+#convet to title format
+str_to_title(lowc[33])
+
+#converting to sentence
+str_to_sentence(lowc[17])
