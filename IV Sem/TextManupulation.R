@@ -19,3 +19,8 @@ highc = toupper(content)
 View(lowc)
 highc
 
+#char replacement
+chartr(old = "a", new = "A", lowc)
+#split strings
+spl = strsplit(highc, split =" ")
+View(spl)
