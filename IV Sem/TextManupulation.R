@@ -18,7 +18,6 @@ lowc
 highc = toupper(content)
 View(lowc)
 highc
-
 #char replacement
 chartr(old = "a", new = "A", lowc)
 #split strings
@@ -30,7 +29,21 @@ spl[[2]]
 #access single element
 spl2 = unlist(strsplit(highc, split = " "))
 View(spl2)
-
+#number indicate data with htese number which show word for that number
 spl2
-spl2[5]
+spl2[2000]
 spl2[3120]
+
+library(stringr)
+#lengith of string
+str_length(content)
+str_length(spl)
+str_length(spl2)
+#detect string
+str_detect(spl2, "Z")
+str_detect(spl2, "TO")
+spl2[791]
+
+#detecting string index
+str_which(spl2, "AT")
+spl2[1874]
