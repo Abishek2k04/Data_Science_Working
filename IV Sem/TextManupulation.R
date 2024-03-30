@@ -24,3 +24,13 @@ chartr(old = "a", new = "A", lowc)
 #split strings
 spl = strsplit(highc, split =" ")
 View(spl)
+spl
+#extract the element
+spl[[2]]
+#access single element
+spl2 = unlist(strsplit(highc, split = " "))
+View(spl2)
+
+spl2
+spl2[5]
+spl2[3120]
