@@ -33,3 +33,60 @@ corpus
 #term document matrix
 td.mat <- as.matrix(TermDocumentMatrix(corpus))
 View(td.mat)
+
+#distance matrix
+dist.mat <- dist(t(as.matrix(td.mat)))
+dist.mat
+
+#classical mulidimensional scalling
+fit <- cmdscale(dist.mat, eig=TRUE, k=2)
+fit
+
+#converting to dataframe
+points <-data.frame(x=fit$points[, 1],y=fit$points[, 2])
+View(points)
+points
+#plot
+ggplot(points, aes(x=x,y=y))+
+       geom_point(data=points,aes(x=x,y=y, color=df$view))+
+       geom_text(data=points,aes(x=x,y=y-0.2,label=row.names(df)))
+
+#weightim
+td.mat.lsa <- lw_bintf(td.mat)*gw_idf(td.mat)
+View(td.mat.lsa)
+
+#LSA
+lsaSpace <- lsa(td.mat.lsa)
+lsaSpace
+
+#computing distance matrix for LSA
+dist.mat.lsa <- dist(t(as.textmatrix(lsaSpace)))
+dist.mat.lsa
+
+#classical multidimensional scalling for LSA
+fit_lsa <- cmdscale(dist.mat.lsa, eig=TRUE, k=2)
+fit_lsa
+
+#converting to Dataframe
+points_lsa <-data.frame(x=fit$points[, 1],y=fit$points[, 2])
+View(points_lsa)
+
+#plot for LSA
+ggplot(points_lsa, aes(x=x,y=y))+
+  geom_point(data=points_lsa,aes(x=x,y=y, color=df$view))+
+  geom_text(data=points_lsa,aes(x=x,y=y-0.2,label=row.names(df)))
+
+#Importing 3D visualization library
+library(scatterplot3d)
+
+#classical multidimensional scalling ofr lsa
+fit2 <- cmdscale(dist.mat.lsa, eig=TRUE,k=3)
+fit2
+
+colors <- rep(c("blue", "green", "red"), each=3)
+colors
+
+#3D sctterplot
+scatterplot3d(fit2$points[, 1], fit2$points[, 2], fit2$points[, 3],
+              color=colors, pch=16,main="semantic space scaled to 3D",
+              xlab="x", ylab = "y", zlab = "z", type = "h")
