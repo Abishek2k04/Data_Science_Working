@@ -1,0 +1,38 @@
+library(udpipe) 
+data(brussels_listings,package = 'udpipe') 
+View(brussels_listings) 
+x<-table(brussels_listings$neighbourhood) 
+View(x) 
+x<-sort(x) 
+x1<-sort(x,decreasing = TRUE) 
+View(x) 
+View(x1) 
+library(textplot) 
+textplot_bar(x1,panel = "locations",col.panel="darkgray", 
+xlab= "listings", cextext=0.75, addpct= TRUE, 
+cexpct=0.5) 
+data(brussels_reviews_anno,package='udpipe') 
+View(brussels_reviews_anno) 
+y<-subset(brussels_reviews_anno, 
+xpos %in% "NN" & language %in% "nl" & !is.na(lemma)) 
+View(y) 
+y1<-document_term_frequencies(y,document="doc_id",term="lemma") 
+View(y1) 
+dtm<-document_term_matrix(y1) 
+dtm 
+dtm<-dtm_remove_lowfreq(dtm,maxterms = 60) 
+dtm 
+cor<-dtm_cor(dtm) 
+View(cor) 
+library(glasso) 
+w<-subset(brussels_reviews_anno,xpos %in% "JJ" & language %in%"fr") 
+View(w) 
+w<-cooccurrence(w,group = "doc_id", term = "lemma") 
+View(w) 
+w 
+textplot_cooccurrence(w,top_n = 40,subtitle = "showing only top 25") 
+sentence="Hey friends,welcome to the class lets learn about the textanalytics" 
+z<-udpipe(sentence,"english") 
+View(z) 
+library(ggraph) 
+textplot_dependencyparser(z)
