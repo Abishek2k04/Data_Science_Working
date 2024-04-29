@@ -1,0 +1,17 @@
+library(robotstxt) 
+library(rvest) 
+link = "https://en.wikipedia.org/wiki/Singapore" 
+path = paths_allowed(link) 
+web = read_html(link) 
+View(web) 
+geo = web  %>% html_node(".vcard+ p") %>% html_text() 
+View(geo) 
+history = web  %>% html_node("p:nth-child(9)") %>%               
+html_text() 
+View(history) 
+g = data.frame(geo) 
+h = data.frame(history) 
+View(g) 
+View(h) 
+write.dcf(g,"Geography of Singapore.doc") 
+write.dcf(h,"History of Singapore.doc")
