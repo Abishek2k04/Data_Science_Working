@@ -1,0 +1,57 @@
+library(robotstxt)
+library(rvest)
+#scraping website
+url <-"https://www.espncricinfo.com/story/anantha-narayanan-jayasuriya-stunner-in-singapore-and-all-the-other-outliers-in-odi-history-1348299"
+#allowability
+path = paths_allowed(url)
+#html of web site
+web =read_html(url)
+View(web)
+content <- web %>% html_nodes(".ci-html-content div") %>% html_text()
+View(content)
+lowc = tolower(content)
+View(lowc)
+lowc
+upc = toupper(content)
+View(upc)
+upc
+#character replacement
+chartr(old = "a", new = "A",lowc)
+#splliting string
+spl = strsplit(upc,split =" ")
+View(spl)
+#extract as list
+spl[[2]]
+#extract as word
+spl2 = unlist(strsplit(upc,split = " "))
+View(spl2)
+spl2
+#accessing single element
+spl2
+spl2[5]
+spl2[3227]
+spl2[200]
+spl2[999]
+library(stringr)
+#length of string
+str_length(content)
+str_length(spl)
+str_length(spl2)
+#decting string
+str_detect(spl2,"G")
+str_detect(spl2, "R")
+str_detect(spl2,"Z")
+#decting string index
+str_which(spl2,"AT")
+spl2[1227]
+#counting match in string
+str_count(spl2,"U")
+spl2[742]
+#flatting string
+a =str_flatten(spl," ")
+View(a)
+#convert into title format (first letter of all word change into upper)
+str_to_title(lowc[33])
+#convert into sentence (first letter only change in sentence)
+str_to_sentence(lowc[33])
+
